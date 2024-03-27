@@ -3,10 +3,10 @@ This is an initial version of a React frontend website. We are LOADING...
 
 ## Required
 ### `Install Node js`
-To install Node.js, please visit Node.js official website and follow the instructions for your operating system.
+To install Node.js, please visit [Node.js official website](https://nodejs.org/en) and follow the instructions for your operating system.
 
 ### `Install NPX`
-npm install -g npx
+NPX can be installed globally using npm: npm install -g npx
 
 ## Available Scripts
 In the project directory, you can run:
