@@ -1,0 +1,78 @@
+@import url('./bootstrap/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.xtitle {
+      letter-spacing: '1px';
+      font-family: 'Rubik';
+      font-weight: 600;
+}
+
+.xlabel {
+      font-family: 'Rubik';
+      font-weight: 500;
+}
+
+.xtext {
+      font-family: 'Rubik';
+      font-weight: 400;
+}
+
+.xform {
+      width: '23rem';
+}
+
+.xsideimage {
+      object-fit: 'cover';
+      object-position: 'left';
+}
+
+
+.avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+}
+
+.map-container {
+      height: 400px;
+      width: 100%;
+}
+
+.haircut-img {
+      width: 100%;
+      height: auto;
+}
+
+.haircut-container {
+      border: 2px solid #ccc;
+      padding: 10px;
+      text-align: center;
+}
+
+.haircut-img {
+      max-width: 100%;
+}
+
+.haircut-name {
+      margin-top: 10px;
+      font-weight: bold;
+}
+
+/* Rating Stars */
+.rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+}
+
+.rating span {
+      font-size: 20px;
+}
+
+.rating .fa-star {
+      color: #FFD700;
+}
+
+.checked {
+      color: #FFD700;
+}
