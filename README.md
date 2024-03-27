@@ -1,5 +1,5 @@
 ## Clip Connect : Find The Nearest Barber, Save Your Time
-This is an initial version of a React frontend website. We $${\color{red}LOADING...}$$
+This is an initial version of a React frontend website. We are LOADING...
 
 
 ## Available Scripts
