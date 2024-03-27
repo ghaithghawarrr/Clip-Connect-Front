@@ -6,7 +6,7 @@ This is an initial version of a React frontend website. We are LOADING...
 To install Node.js, please visit [Node.js official website](https://nodejs.org/en) and follow the instructions for your operating system.
 
 ### `Install NPX`
-NPX can be installed globally using npm: npm install -g npx
+NPX can be installed globally using npm : npm install -g npx
 
 ## Available Scripts
 In the project directory, you can run:
