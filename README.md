@@ -1,4 +1,4 @@
-#Clip&Connect
+##Clip&Connect
 Find Your Barber ;) Save Your Time
 
 ## Available Scripts
