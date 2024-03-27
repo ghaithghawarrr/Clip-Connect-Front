@@ -3,7 +3,8 @@ This is an initial version of a React frontend website. We are LOADING...
 
 ## Required
 ### `Install Node js`
-https://nodejs.org/en
+To install Node.js, please visit Node.js official website and follow the instructions for your operating system.
+
 ### `Install NPX`
 npm install -g npx
 
