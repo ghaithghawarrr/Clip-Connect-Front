@@ -1,6 +1,11 @@
 ## Clip Connect : Find The Nearest Barber, Save Your Time
 This is an initial version of a React frontend website. We are LOADING...
 
+## Required
+### `Install Node js`
+https://nodejs.org/en
+### `Install NPX`
+npm install -g npx
 
 ## Available Scripts
 In the project directory, you can run:
