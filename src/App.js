@@ -11,8 +11,7 @@ import SuccessResetPassword from './pages/auth/SuccessResetPassword.jsx'
 import Home from './pages/home.jsx'
 import Explore from './pages/Explore.jsx';
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
-
-import ApiTest from "./components/ApiTest.jsx"
+import BarberProfile from './pages/BarberProfile.jsx';
 
 
 class App extends Component {
@@ -29,7 +28,7 @@ class App extends Component {
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/successresetpassword" element={<SuccessResetPassword />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/apitest" element={<ApiTest />} />
+          <Route path="/barberprofile" element={<BarberProfile />} />
         </Routes>
       </Router>
     </>)

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-class ButtonLight extends Component {
+export default class ButtonLight extends Component {
   render() {
+    const { type, name, onClick } = this.props;
     return (
-      <div className="mb-2">
-        <Link to={this.props.link}>
-          <button className="btn btn-light btn-block" type="button">{this.props.name}</button>
-        </Link>
-      </div>
+        <button className="btn btn-light btn-block" type={type} onClick={type === 'button' ? onClick : null}>
+          {name}
+        </button>
     );
   }
 }
 
-export default ButtonLight;

@@ -9,7 +9,7 @@ import Services from '../components/home/Services';
 class Home extends Component {
       render() {
             return (
-                  <div>
+                  <div className='rubik'>
                         <HomeNavBar />
                         <HomeImage />
                         <Guide />

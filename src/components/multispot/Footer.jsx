@@ -7,7 +7,7 @@ import instagram from "../../assets/icons/instagram.svg";
 class Footer extends Component {
   render() {
     return (
-      <footer className="bg-dark text-white mt-5">
+      <footer className="bg-dark text-white">
         <div className="container py-5">
           <div className="row">
             <div className="col-md-4">

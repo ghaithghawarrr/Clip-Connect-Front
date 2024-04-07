@@ -5,7 +5,7 @@ import SideImage from '../../components/auth/SideImage';
 class CheckEmail extends Component {
   render() {
     return (
-      <div className="App">
+      <div className='rubik'>
         <section className="vh-100">
           <div className="container-fluid">
             <div className="row">

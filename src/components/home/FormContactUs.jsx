@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 class FormContactUs extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container mb-4">
         <section id="contact">
           <h2>Contact Us</h2>
           <form>
