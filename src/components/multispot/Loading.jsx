@@ -1,6 +1,6 @@
 import React from "react";
 import { useLottie } from "lottie-react";
-import loading from "../assets/animation/loading.json";
+import loading from "../../assets/animation/loading.json";
 
 export default function Loading() {
       const options = {

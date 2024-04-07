@@ -1,19 +1,23 @@
 import React, { useReducer, useState } from 'react';
 import axios from 'axios';
-import TextField from './TextField';
-import Button from '../multispot/Button';
-import HalfLinkText from './HalfLinkText';
-import { useNavigate, Link } from 'react-router-dom';
-import Spacer from '../multispot/Spacer';
-import Loading from '../Loading';
+import TextField from '../TextField';
+import Button from '../../multispot/Button';
+import Spacer from '../../multispot/Spacer';
+import HalfLinkText from '../HalfLinkText';
+import DropdownList from '../DropdownList';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormSignup() {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const initialState = {
+    username: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    role: "client"
   }
 
   const reducer = (state, action) => {
@@ -34,32 +38,42 @@ export default function FormSignup() {
   }
 
   const handleSubmit = async (e) => {
-    setIsLoading(true);
     e.preventDefault();
+
+    if (state.password !== state.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(""); // Reset error state
 
     try {
       const queryParams = {
         role: 'client'
       };
       const queryBody = {
+        name: state.username,
         email: state.email,
         password: state.password
       };
-      console.log(queryBody);
+
       const response = await axios.post(
-        'http://localhost:8080/api/users/login',
+        'http://localhost:8080/api/users/register',
         queryBody,
         { params: queryParams }
       );
 
-      if (response.data.status == "success") {
-        console.log('Goood');
+      if (response.data.status === "success") {
+        navigate("/verifycode", { state: { type: 0, email: response.data.data.email } });
       } else {
-        console.error(response.data.message);
+        setError(response.data.message);
       }
-      navigate("/explore", { state: { userid: response.data.data.id } });
+
     } catch (error) {
       console.error('Error occurred during signup:', error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -67,19 +81,19 @@ export default function FormSignup() {
     <div className="d-flex vh-100 align-items-center h-custom-2 px-5 ms-xl-4 pt-5 pt-xl-0 mt-xl-n5">
       <form className="xform" onSubmit={handleSubmit} style={{ width: "280px" }}>
         <h3 className="mb-3 pb-3 xtitle">Sign up</h3>
-
+        {error && <div className="alert alert-danger" role="alert">
+          {error}
+        </div>}
+        <TextField label="Username" name="username" type="text" onChange={handleChange} value={state.username} />
         <TextField label="Email" name="email" type="email" onChange={handleChange} value={state.email} />
         <TextField label="Password" name="password" type="password" onChange={handleChange} value={state.password} />
-        <p className="small pb-lg-2 text-end" ><Link className="text-muted" to="/checkemail">Forgot password?</Link></p>
+        <TextField label="Confirm Password" name="confirmPassword" type="password" onChange={handleChange} value={state.confirmPassword} />
+        <DropdownList label="Role" name="role" options={["Client", "Barber"]} selected={state.role} onChange={handleChange} />
+        <Spacer height="1rem" />
+        <Button name="Sign up" type="submit" disabled={isLoading} />
 
-        {/* {isLoading ? (
-          <Loading />
-        ) : (
-          <Button name="Log in" type="submit" />
-        )} */}
-        <Button name="Log in" type="submit" />
         <Spacer height="20px" />
-        <HalfLinkText nonlinktext="Don't have an account? " linktext="Register here" to="/signup" />
+        <HalfLinkText nonlinktext="Already have an account? " linktext="Log in" to="/login" />
       </form>
     </div>
   );

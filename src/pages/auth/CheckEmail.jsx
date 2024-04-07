@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormCheckEmail from '../../components/auth/FormCheckEmail';
+import FormCheckEmail from '../../components/auth/Forms/FormCheckEmail';
 import SideImage from '../../components/auth/SideImage';
 
 class CheckEmail extends Component {

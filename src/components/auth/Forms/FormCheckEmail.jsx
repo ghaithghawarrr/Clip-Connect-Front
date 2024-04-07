@@ -1,17 +1,16 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import axios from 'axios';
-import TextField from './TextField';
-import Button from '../multispot/Button';
-import HalfLinkText from './HalfLinkText';
-import { useNavigate, useLocation } from 'react-router-dom';
-import Spacer from '../multispot/Spacer';
+import TextField from '../TextField';
+import Button from '../../multispot/Button';
+import { useNavigate } from 'react-router-dom';
+import Spacer from '../../multispot/Spacer';
 
-export default function ResetPassword() {
+export default function FormCheckEmail() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const [error, setError] = useState("");
+
   const initialState = {
-    newPassword: "",
-    confirmNewPassword: ""
+    email: "",
   }
 
   const reducer = (state, action) => {
@@ -36,21 +35,19 @@ export default function ResetPassword() {
 
     try {
       const queryParams = {
-        email: location.state.email,
-        verificationCode: location.state.verificationCode,
-        newPassword: state.newPassword,
+        email: state.email
       };
       console.log(queryParams)
       const response = await axios.post(
-        'http://localhost:8080/api/users/reset-password',
+        'http://localhost:8080/api/users/forgot-password',
         null,
         { params: queryParams }
       );
 
       if (response.data.status == "success") {
-        navigate("/login");
+        navigate("/verifycode", { state: { type: 1, email: state.email } });
       } else {
-        console.error(response.data.message);
+        setError(response.data.message);
       }
     } catch (error) {
       console.error('Error occurred during signup:', error);
@@ -60,12 +57,13 @@ export default function ResetPassword() {
   return (
     <div className="d-flex vh-100 align-items-center h-custom-2 px-5 ms-xl-4 pt-5 pt-xl-0 mt-xl-n5">
       <form className="xform" onSubmit={handleSubmit} style={{ width: "280px" }}>
-        <h3 className="mb-3 pb-3 xtitle">Reset Password</h3>
-
-        <TextField label="New Password" name="newPassword" type="password" onChange={handleChange} value={state.newPassword} />
-        <TextField label="Confirm New Password" name="confirmNewPassword" type="password" onChange={handleChange} value={state.confirmNewPassword} />
+        <h3 className="mb-3 pb-3 xtitle">Check Email</h3>
+        {error && <div className="alert alert-danger" role="alert">
+          {error}
+        </div>}
+        <TextField label="Email" name="email" type="email" onChange={handleChange} value={state.email} />
         <Spacer height="1rem" />
-        <Button name="Reset" type="submit" />
+        <Button name="Submit" type="submit" />
       </form>
     </div>
   );

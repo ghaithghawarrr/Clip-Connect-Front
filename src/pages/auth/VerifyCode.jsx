@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormVerifyCode from '../../components/auth/FormVerifyCode';
+import FormVerifyCode from '../../components/auth/Forms/FormVerifyCode';
 import SideImage from '../../components/auth/SideImage';
 
 class VerifyCode extends Component {

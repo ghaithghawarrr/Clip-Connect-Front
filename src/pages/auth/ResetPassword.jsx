@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormResetPassword from '../../components/auth/FormResetPassword';
+import FormResetPassword from '../../components/auth/Forms/FormResetPassword';
 import SideImage from '../../components/auth/SideImage';
 
 class ResetPassword extends Component {

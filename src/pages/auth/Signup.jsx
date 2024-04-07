@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormSignup from '../../components/auth/FormSignup';
+import FormSignup from '../../components/auth/Forms/FormSignup';
 import SideImage from '../../components/auth/SideImage';
 
 class Signup extends Component {

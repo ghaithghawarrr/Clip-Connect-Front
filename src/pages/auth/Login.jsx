@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormLogin from '../../components/auth/FormLogin';
+import FormLogin from '../../components/auth/Forms/FormLogin';
 import SideImage from '../../components/auth/SideImage';
 
 class Login extends Component {
