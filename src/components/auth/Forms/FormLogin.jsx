@@ -5,7 +5,7 @@ import Button from '../../multispot/Button';
 import HalfLinkText from '../HalfLinkText';
 import { useNavigate, Link } from 'react-router-dom';
 import Spacer from '../../multispot/Spacer';
-
+import Loading from '../../multispot/Loading';
 export default function FormSignup() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +69,7 @@ export default function FormSignup() {
   return (
     <div className="d-flex vh-100 align-items-center h-custom-2 px-5 ms-xl-4 pt-5 pt-xl-0 mt-xl-n5">
       <form className="xform" onSubmit={handleSubmit} style={{ width: "280px" }}>
-        <h3 className="mb-3 pb-3 xtitle">Sign up</h3>
+        <h3 className="mb-3 pb-3 xtitle">Log in</h3>
         {error && <div className="alert alert-danger" role="alert">
           {error}
         </div>}
@@ -77,12 +77,12 @@ export default function FormSignup() {
         <TextField label="Password" name="password" type="password" onChange={handleChange} value={state.password} />
         <p className="small pb-lg-2 text-end" ><Link className="text-muted" to="/checkemail">Forgot password?</Link></p>
 
-        {/* {isLoading ? (
+        {isLoading ? (
           <Loading />
         ) : (
           <Button name="Log in" type="submit" />
-        )} */}
-        <Button name="Log in" type="submit" />
+        )}
+        {/* <Button name="Log in" type="submit" /> */}
         <Spacer height="20px" />
         <HalfLinkText nonlinktext="Don't have an account? " linktext="Register here" to="/signup" />
       </form>
