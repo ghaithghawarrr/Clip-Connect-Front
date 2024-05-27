@@ -1,17 +1,8 @@
 import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
 import { Component } from 'react';
 import './styles/mystyle.css';
-import Login from './pages/auth/Login.jsx'
-import Signup from './pages/auth/Signup.jsx'
-import BeBarber from './pages/auth/BeBarber.jsx'
-import CheckEmail from './pages/auth/CheckEmail.jsx'
-import VerifyCode from './pages/auth/VerifyCode.jsx'
-import ResetPassword from './pages/auth/ResetPassword.jsx'
-import SuccessResetPassword from './pages/auth/SuccessResetPassword.jsx'
-import Home from './pages/home.jsx'
-import Explore from './pages/Explore.jsx';
-import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
-import BarberProfile from './pages/BarberProfile.jsx';
+import { Login, Signup, Hero, ForgetPassword, Verification, ResetPassword, Success, Home, BarberProfile, AboutUs, Features, Support, BarberSetup, MyProfile } from './import.js'
+
 
 
 class App extends Component {
@@ -19,16 +10,20 @@ class App extends Component {
     return (<>
       <Router>
         <Routes>
-          <Route path="/" index exact element={<Home />} />
+          <Route path="/" index exact element={<Hero />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/bebarber" element={<BeBarber />} />
-          <Route path="/checkemail" element={<CheckEmail />} />
-          <Route path="/verifycode" element={<VerifyCode />} />
-          <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/successresetpassword" element={<SuccessResetPassword />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/barberprofile" element={<BarberProfile />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/verification" element={<Verification />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/barber" element={<BarberProfile />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/barber-setup" element={<BarberSetup />} />
+          <Route path="/my-profile" element={<MyProfile />} />
         </Routes>
       </Router>
     </>)
